@@ -7,7 +7,7 @@ Simple utility for PDF invoice generation in Python
 3. Optionally configure terms by creating a ```translations/terms.[language].yaml``` file, check out the example file ```config/terms.example.yaml```
 
 ## Usage
-1. Generate an invoice object eg. ```invoice = Invoice(invoice_date <YY-mm-dd>, customer_id, customer_name, customer_address, customer_postal_code, customer_city, customer_country, customer_vat_registered_number, vat_percentage)```
+1. Generate an invoice object eg. ```invoice = Invoice(invoice_id, invoice_date <YY-mm-dd>, customer_id, customer_name, customer_address, customer_postal_code, customer_city, customer_country, customer_vat_registered_number, vat_percentage)```
 2. Set article lines by using the ```set_articles()``` method on the invoice object. Example ```[{'name': 'Pizza margherita', 'price': 9.99, 'amount': 1}, {'name': 'Pizza fungi', 'price': 11.99, 'amount': 1}]```
 3. Generate an InvoicePDF object eg. ```pdf = InvoicePDF(invoice <the invoice object>, invoice_language <the desired print language>)```
 4. Generate the PDF by running the ```generate_document()``` method on the invoicepdf object
