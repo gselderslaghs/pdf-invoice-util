@@ -1,6 +1,7 @@
+import locale
+
 from dataclasses import dataclass
 from typing import List
-
 from datetime import datetime
 
 
@@ -16,6 +17,7 @@ class Invoice:
     customer_country: str
     customer_vat_registered_number: str
     vat_percentage: int
+    invoice_language: str
     articles: List[object]
 
     def __init__(self,
@@ -45,6 +47,7 @@ class Invoice:
         self.customer_vat_number: str = customer_vat_registered_number
         self.vat_percentage: int = vat_percentage
         try:
+            locale.setlocale(locale.LC_ALL, self.config['pdf']['locale'])
             self.set_invoice_date(invoice_date)
         except ValueError as e:
             print(f'ValueError: {e}')
