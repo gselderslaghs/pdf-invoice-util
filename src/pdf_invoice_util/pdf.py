@@ -27,9 +27,7 @@ class PDF(FPDF):
 
     def header(self):
         try:
-            if 'logo' in self.config['pdf'] and Path(
-                    ('{0}/{1}').format(Path(__file__).parent.resolve().__str__(), self.config['pdf']['logo'])).resolve(
-                    strict=True):
+            if 'logo' in self.config['pdf'] and Path(f'{self.config['pdf']['logo']}').resolve(strict=True):
                 self.image(self.config['pdf']['logo'], 10, 10, 20)
         except FileNotFoundError as e:
             print(f'Logo not found: {e}')
