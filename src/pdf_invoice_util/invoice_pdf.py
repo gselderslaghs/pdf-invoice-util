@@ -102,6 +102,11 @@ class InvoicePDF(PDF):
             self.cell(self.config['pdf']['cell_width'], self.config['pdf']['cell_height'],
                       self.render_currency(article['amount'] * article['price']),
                       align='R', new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+            if article['description']:
+                self.set_font(self.config['pdf']['font'], 'i', size=9)
+                self.multi_cell(0, self.config['pdf']['cell_height'], article['description'],
+                      new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+                self.set_font(self.config['pdf']['font'], '', size=9)
 
         # Totals
         subtotal = sum([article['amount'] * article['price'] for article in self.invoice.articles])

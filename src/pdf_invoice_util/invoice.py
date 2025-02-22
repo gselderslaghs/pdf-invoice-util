@@ -68,4 +68,4 @@ class Invoice:
 
     def get_articles(self):
         return ('<Invoice articles: {0}>').format(
-            [[article['title'], article['price'], article['amount']] for article in self.articles])
+            [[article['title'], article['price'], article['amount'], article['description']] for article in self.articles])

@@ -1,6 +1,6 @@
 [project]
 name = "pdf_invoice_util"
-version = "0.0.3"
+version = "0.0.4"
 dependencies = [
     "pyyaml>=6.0",
     "fpdf2>=2.8",
